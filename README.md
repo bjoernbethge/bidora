@@ -47,25 +47,25 @@ W' = m ⊙ (W₀ + BA) / ||W₀ + BA||
 ### From PyPI (recommended)
 
 ```bash
-# With pip
 pip install bidora
-
-# With uv
-uv pip install bidora
 ```
 
-### From source
+### As a project dependency
 
 ```bash
-# Clone repository
+# With uv (recommended)
+uv add bidora
+
+# With pip
+pip install bidora
+```
+
+### From source (for development)
+
+```bash
 git clone https://github.com/bjoernbethge/bidora.git
 cd bidora
-
-# Install with uv (recommended)
 uv pip install -e .
-
-# Or with pip
-pip install -e .
 ```
 
 ## 🎯 Quick Start
@@ -392,6 +392,19 @@ uv pip install --force-reinstall transformers accelerate peft bitsandbytes
 - [LoRA Paper](https://arxiv.org/abs/2106.09685) - Low-Rank Adaptation
 - [DoRA Paper](https://arxiv.org/abs/2402.09353) - Weight-Decomposed LoRA
 - [Qwen3 Models](https://huggingface.co/collections/Qwen/qwen3-680edabfb790c8c34a242f95) - HuggingFace model collection
+
+## 📖 Citation
+
+If you use BiDoRA in your research, please cite:
+
+```bibtex
+@article{liu2024bidora,
+  title={BiDoRA: Bi-level Optimization-Based Weight-Decomposed Low-Rank Adaptation},
+  author={Liu, Peiran and Wang, Luning and Sun, Yanchao and Tang, Zhongwei and Xu, Dawei and Li, Jiaxi and Xu, Zhili},
+  journal={arXiv preprint arXiv:2410.09758},
+  year={2024}
+}
+```
 
 ## 📝 License
 
