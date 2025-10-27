@@ -5,6 +5,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.1.1] - 2025-01-28
+
+### Fixed
+- **Critical**: Fixed programmatic usage example in README showing incorrect quantization mode
+  - Changed from `quantization="4bit"` to `quantization="none"`
+  - BiDoRA requires full precision (bfloat16) and does not support quantization
+  - Updated `prepare_bidora_model()` call to use `quantized=False`
+
 ## [0.1.0] - 2025-01-28
 
 ### Added

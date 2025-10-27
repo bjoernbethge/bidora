@@ -37,7 +37,7 @@ W' = m ⊙ (W₀ + BA) / ||W₀ + BA||
 
 - ✅ **BiDoRA Bi-Level Optimization**: True magnitude-direction decomposition
 - ✅ **Auto Hardware Detection**: Automatically adapts config to available hardware
-- ✅ **Multiple Quantization Modes**: 4-bit (NF4), 8-bit, Full Precision
+- ✅ **Full Precision Training**: Optimized for bfloat16 (no quantization needed for BiDoRA)
 - ✅ **Flexible Data Formats**: JSONL, HuggingFace Datasets
 - ✅ **Type-Safe Config**: Pydantic-validated configuration
 - ✅ **CLI Interface**: Simple command-line interface with Typer
@@ -158,7 +158,7 @@ bidora train \
 ```
 
 **Config automatically adjusted:**
-- Quantization: 4-bit (NF4)
+- Precision: bfloat16 (full precision - BiDoRA requirement)
 - Batch Size: 1-2
 - Gradient Accumulation: 8-16
 - Max Seq Length: 1024-2048
@@ -176,7 +176,7 @@ bidora train \
 ```
 
 **Auto-Config:**
-- Quantization: 4-bit (NF4)
+- Precision: bfloat16 (full precision - BiDoRA requirement)
 - Batch Size: 2-4
 - Gradient Accumulation: 4-8
 - Max Seq Length: 2048
@@ -194,7 +194,7 @@ bidora train \
 ```
 
 **Auto-Config:**
-- Quantization: 8-bit
+- Precision: bfloat16 (full precision - BiDoRA requirement)
 - Batch Size: 4-8
 - Gradient Accumulation: 2-4
 - Max Seq Length: 4096
