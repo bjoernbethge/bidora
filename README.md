@@ -323,7 +323,7 @@ from pathlib import Path
 config = FullConfig(
     model=ModelConfig(
         model_name="Qwen/Qwen3-4B",
-        quantization="4bit"
+        quantization="none"  # BiDoRA requires full precision (bfloat16)
     ),
     bidora=BiDoRAConfig(
         rank=8,
@@ -342,12 +342,12 @@ config = FullConfig(
     output_dir=Path("./output")
 )
 
-# Auto-adjust for hardware
+# Auto-adjust for hardware (will keep full precision for BiDoRA)
 config.auto_adjust_for_hardware()
 
 # Load model with BiDoRA layers
 model, tokenizer = load_model_and_tokenizer(config.model)
-model = prepare_bidora_model(model, config.bidora, quantized=True)
+model = prepare_bidora_model(model, config.bidora, quantized=False)
 
 # Load data
 dataset = load_and_prepare_dataset(config.data)
