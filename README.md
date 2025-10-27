@@ -65,7 +65,7 @@ pip install bidora
 ```bash
 git clone https://github.com/bjoernbethge/bidora.git
 cd bidora
-uv pip install -e .
+uv sync --dev
 ```
 
 ## 🎯 Quick Start
