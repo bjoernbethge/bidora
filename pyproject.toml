@@ -1,0 +1,111 @@
+[project]
+name = "bidora"
+version = "0.1.0"
+description = "BiDoRA/LoRA fine-tuning toolkit for 3D code generation and spatial intelligence"
+readme = "README.md"
+requires-python = ">=3.11"
+license = {text = "MIT"}
+authors = [
+    {name = "Björn Bethge", email = "bjoern.bethge@gmail.com"}
+]
+keywords = [
+    "machine-learning",
+    "deep-learning",
+    "llm",
+    "fine-tuning",
+    "lora",
+    "bidora",
+    "dora",
+    "peft",
+    "3d-code",
+    "blender",
+    "rust",
+    "spatial-intelligence"
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+dependencies = [
+    "torch",
+    "torchvision",
+    "torchaudio",
+    "transformers",
+    "accelerate",
+    "bitsandbytes",
+    "peft",
+    "datasets",
+    "trl",
+    "typer",
+    "rich",
+    "pydantic",
+    "pydantic-settings",
+]
+
+[project.urls]
+Homepage = "https://github.com/bjoernbethge/bidora"
+Repository = "https://github.com/bjoernbethge/bidora"
+Issues = "https://github.com/bjoernbethge/bidora/issues"
+Documentation = "https://github.com/bjoernbethge/bidora#readme"
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+    "pytest-cov",
+    "ruff",
+    "mypy",
+]
+
+[project.scripts]
+bidora = "bidora.cli:app"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.sdist]
+exclude = [
+  "/.venv",
+  "/output",
+  "/data",
+  "/*.egg-info",
+  "/.pytest_cache",
+  "/__pycache__",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/bidora"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "N", "W"]
+ignore = ["E501"]
+
+[tool.mypy]
+python_version = "3.11"
+strict = true
+warn_return_any = true
+warn_unused_configs = true
+
+[tool.uv]
+# Install PyTorch packages from CUDA 12.8 index
+[[tool.uv.index]]
+name = "pytorch"
+url = "https://download.pytorch.org/whl/cu128"
+explicit = true
+
+[tool.uv.sources]
+torch = { index = "pytorch" }
+torchvision = { index = "pytorch" }
+torchaudio = { index = "pytorch" }
+
