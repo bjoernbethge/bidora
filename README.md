@@ -44,20 +44,27 @@ W' = m ⊙ (W₀ + BA) / ||W₀ + BA||
 
 ## 📦 Installation
 
-### With uv (recommended)
+### From PyPI (recommended)
 
 ```bash
-# Install package
-uv pip install -e .
+# With pip
+pip install bidora
 
-# Or directly via uv add
-cd bidora
-uv pip install -e .
+# With uv
+uv pip install bidora
 ```
 
-### With pip
+### From source
 
 ```bash
+# Clone repository
+git clone https://github.com/bjoernbethge/bidora.git
+cd bidora
+
+# Install with uv (recommended)
+uv pip install -e .
+
+# Or with pip
 pip install -e .
 ```
 
